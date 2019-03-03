@@ -10,23 +10,12 @@
 
 #include "voice.h"
 
-#include <cmath>
+#include <ysp/math/functor.h>
 
 namespace ysp
 {
 
-namespace detail
-{
-struct sine_functor
-{
-    float operator()( float phase )
-    {
-        return std::sin( phase );
-    }
-};
-} // namespace detail
-
 template< typename SampleType >
-using sine_voice = voice< SampleType, detail::sine_functor >;
+using sine_voice = voice< SampleType, math::sine_functor >;
 
 } // namespace ysp

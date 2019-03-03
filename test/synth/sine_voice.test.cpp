@@ -63,5 +63,10 @@ TEST( sine_voice_test, sine_wave_1kHz )
         i = voice.next();
     }
 
-    EXPECT_EQ( samples, reference_data_i16_1cycle_1kHz_sine_48k );
+	ASSERT_EQ( samples.size(), reference_data_i16_1cycle_1kHz_sine_48k.size() );
+
+	for (size_t i = 0; i < samples.size(); ++i)
+	{
+        EXPECT_EQ( samples[i], reference_data_i16_1cycle_1kHz_sine_48k[i] ) << "sample at index " << i << " failed";
+	}
 }

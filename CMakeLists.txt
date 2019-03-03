@@ -18,17 +18,22 @@ add_subdirectory(libs)
 ###
 
 list( APPEND FILES_src inc/ysp/container/circular_buffer.h )
+
 list( APPEND FILES_src inc/ysp/math/constants.h            )
+list( APPEND FILES_src inc/ysp/math/functor.h              )
+list( APPEND FILES_src inc/ysp/math/sine.h                 )
+list( APPEND FILES_src src/ysp/math/sine.cpp               )
+list( APPEND FILES_src src/ysp/math/sine_table_full.h      )
+
 list( APPEND FILES_src inc/ysp/synth/sine_voice.h          )
 list( APPEND FILES_src inc/ysp/synth/voice.h               )
 
-source_group( TREE inc FILES ${FILES_src} )
+source_group( TREE . FILES ${FILES_src} )
 
-add_library( ysp_arduino INTERFACE )
-target_sources( ysp_arduino INTERFACE ${FILES_src} )
+add_library( ysp_arduino ${FILES_src} )
 target_include_directories(
   ysp_arduino
-  INTERFACE
+  PUBLIC
     inc
 )
 
