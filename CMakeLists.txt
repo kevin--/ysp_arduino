@@ -18,7 +18,9 @@ add_subdirectory(libs)
 ###
 
 list( APPEND FILES_src inc/ysp/container/circular_buffer.h )
+list( APPEND FILES_src inc/ysp/math/constants.h            )
 list( APPEND FILES_src inc/ysp/synth/sine_voice.h          )
+list( APPEND FILES_src inc/ysp/synth/voice.h               )
 
 source_group( TREE inc FILES ${FILES_src} )
 

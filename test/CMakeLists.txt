@@ -4,7 +4,11 @@
 ### target configuration
 ###
 
+### container
 list( APPEND FILES_test container/circular_buffer.test.cpp )
+
+### synth
+list( APPEND FILES_test synth/sine_voice.test.cpp )
 
 source_group( TREE . FILES ${FILES_test} )
 
