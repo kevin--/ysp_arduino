@@ -17,14 +17,21 @@ add_subdirectory(libs)
 ### target configuration
 ###
 
+### container
 list( APPEND FILES_src inc/ysp/container/circular_buffer.h )
 
+### math
 list( APPEND FILES_src inc/ysp/math/constants.h            )
 list( APPEND FILES_src inc/ysp/math/functor.h              )
+
 list( APPEND FILES_src inc/ysp/math/sine.h                 )
 list( APPEND FILES_src src/ysp/math/sine.cpp               )
 list( APPEND FILES_src src/ysp/math/sine_table_full.h      )
+list( APPEND FILES_src src/ysp/math/sine_table_quarter.h   )
 
+list( APPEND FILES_src inc/ysp/math/interp.h               )
+
+### synth
 list( APPEND FILES_src inc/ysp/synth/sine_voice.h          )
 list( APPEND FILES_src inc/ysp/synth/voice.h               )
 
