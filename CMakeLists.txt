@@ -7,9 +7,13 @@ cmake_policy( SET CMP0076 NEW )
 
 project(ysp_arduino)
 
-set(CMAKE_CXX_STANDARD           14  )
-set(CMAKE_CXX_STANDARD_REQUIRED  ON  )
-set(CMAKE_CXX_EXTENSIONS         OFF )
+if( CMAKE_PROJECT_NAME STREQUAL ysp_arduino )
+  set( YSP_ARDUINO_TESTS ON )
+endif()
+
+set( CMAKE_CXX_STANDARD           14  )
+set( CMAKE_CXX_STANDARD_REQUIRED  ON  )
+set( CMAKE_CXX_EXTENSIONS         OFF )
 
 add_subdirectory(libs)
 
@@ -44,5 +48,7 @@ target_include_directories(
     inc
 )
 
-### tests
-add_subdirectory(test)
+if( YSP_ARDUINO_TESTS )
+  ### tests
+  add_subdirectory(test)
+endif()
